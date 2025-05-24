@@ -256,31 +256,34 @@ function App() {
       .attr('stroke', d => seasonColor(d.season))
       .attr('stroke-width', 2)
       .on('mouseover', (event, d) => {
-      const tooltipX = event.pageX + tooltipOffset;
-      const tooltipY = event.pageY - 20;
+        const tooltipX = event.pageX + tooltipOffset;
+        const tooltipY = event.pageY - 20;
 
-      // Check if tooltip would overflow on the right
-      const isOverflowingRight = tooltipX + tooltipWidth > window.innerWidth;
+        // Dynamically calculate tooltip width based on viewport size
+        const viewportWidth = window.innerWidth;
+        const dynamicTooltipWidth = Math.min(tooltipWidth, viewportWidth - 40); // Ensure some padding on mobile
 
-      tooltip
-        .style('opacity', 1)
-        .html(`
-        <div style="display: flex; align-items: center;">
-          <img src="${d.url}" alt="${d.title}" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 5px;" />
-          <div>
-          <strong>${d.title}</strong><br />
-          <span>Season: ${d.season}</span><br />
-          <span>Score: ${d.score}</span><br />
-          <span>Notes: ${d.notes || 'N/A'}</span>
-          </div>
-        </div>
-        `)
-        .style('left', isOverflowingRight ? `${event.pageX - tooltipWidth - tooltipOffset}px` : `${tooltipX}px`)
-        .style('top', `${tooltipY}px`);
+        // Check if tooltip would overflow on the right
+        const isOverflowingRight = tooltipX + dynamicTooltipWidth > viewportWidth;
+
+        tooltip
+          .style('opacity', 1)
+          .html(`
+            <div style="display: flex; align-items: center;">
+              <img src="${d.url}" alt="${d.title}" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 5px;" />
+              <div>
+                <strong>${d.title}</strong><br />
+                <span>Season: ${d.season}</span><br />
+                <span>Score: ${d.score}</span><br />
+                <span>Notes: ${d.notes || 'N/A'}</span>
+              </div>
+            </div>
+          `)
+          .style('width', `${dynamicTooltipWidth}px`) // Set dynamic width
+          .style('left', isOverflowingRight ? `${event.pageX - dynamicTooltipWidth - tooltipOffset}px` : `${tooltipX}px`)
+          .style('top', `${tooltipY}px`);
       })
-      .on('mouseout', () => {
-      tooltip.style('opacity', 0);
-      });
+
 
     svg
       .selectAll('circle')
@@ -293,7 +296,7 @@ function App() {
       .attr('fill', (d, i) => `url(#img-pattern-${i})`)
       .attr('stroke', d => seasonColor(d.season))
       .attr('stroke-width', 2)
-      .style('cursor', 'pointer') 
+      .style('cursor', 'pointer')
       .on('mouseover', (event, d) => {
         tooltip
           .style('opacity', 1)
