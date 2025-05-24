@@ -61,62 +61,59 @@ function App() {
   useEffect(() => {
     // Season 1 data
     const dataS1 = [
-      { score: 6, url: img1, title: 'Mystery Meat' },
-      { score: 6.2, url: img2, title: 'One of a Kind' },
-      { score: 6, url: img3, title: 'Parental Bonding' },
-      { score: 6, url: img4, title: 'Attack of the Killer Garage Sale' },
-      { score: 5.6, url: img5, title: 'Splitting Images' },
-      { score: 5.7, url: img6, title: 'What You Want' },
-      { score: 9, url: img7, title: 'Bitter Reunions' },
-      { score: 8.2, url: img8, title: 'Prisoners of Love' },
-      { score: 8.5, url: img9, title: 'My Brother\'s Keeper' },
-      { score: 8.5, url: img10, title: 'Shades of Gray' },
-      { score: 8, url: img11, title: 'Fanning the Flames' },
-      { score: 8, url: img12, title: 'Teacher of the Year' },
-      { score: 8, url: img13, title: '13' },
-      { score: 9.5, url: img14, title: 'Public Enemies' },
-      { score: 7, url: img15, title: 'Fright Night' },
-      { score: 9, url: img16, title: 'Maternal Instincts' },
-      { score: 6, url: img17, title: 'Lucky In Love' },
-      { score: 8, url: img18, title: 'Life Lessons' },
-      { score: 8.2, url: img19, title: 'Million Dollar Ghost' },
-      { score: 8.5, url: img20, title: 'Control Freak' },
+      { score: 6, url: img1, title: 'Mystery Meat', notes: '' },
+      { score: 6.2, url: img2, title: 'One of a Kind', notes: '' },
+      { score: 6, url: img3, title: 'Parental Bonding', notes: '' },
+      { score: 6, url: img4, title: 'Attack of the Killer Garage Sale', notes: '' },
+      { score: 5.6, url: img5, title: 'Splitting Images', notes: '' },
+      { score: 5.7, url: img6, title: 'What You Want', notes: '' },
+      { score: 9, url: img7, title: 'Bitter Reunions', notes: '' },
+      { score: 8.2, url: img8, title: 'Prisoners of Love', notes: '' },
+      { score: 8.5, url: img9, title: 'My Brother\'s Keeper', notes: '' },
+      { score: 8.5, url: img10, title: 'Shades of Gray', notes: '' },
+      { score: 8, url: img11, title: 'Fanning the Flames', notes: 'This episode is very popular with fake fans' },
+      { score: 8, url: img12, title: 'Teacher of the Year', notes: '' },
+      { score: 8, url: img13, title: '13', notes: '' },
+      { score: 9.5, url: img14, title: 'Public Enemies', notes: 'Great episode, love the roundness.' },
+      { score: 7, url: img15, title: 'Fright Night', notes: '' },
+      { score: 9, url: img16, title: 'Maternal Instincts', notes: '' },
+      { score: 6, url: img17, title: 'Lucky In Love', notes: '' },
+      { score: 8, url: img18, title: 'Life Lessons', notes: '' },
+      { score: 8.2, url: img19, title: 'Million Dollar Ghost', notes: '' },
+      { score: 8.5, url: img20, title: 'Control Freak', notes: '' },
     ]
-    // Season 2 data (replace scores/titles as needed)
     const dataS2 = [
-      { score: 6.8, url: s2img1, title: 'Memory Blank' },
-      { score: 6.8, url: s2img2, title: 'Doctor\'s Disorders' },
-      { score: 6.8, url: s2img3, title: 'Pirate Radio' },
-      { score: 8.3, url: s2img4, title: 'Reign Storm' },
-      { score: 9.8, url: s2img5, title: 'The Ultimate Enemy' },
-      { score: 6.6, url: s2img6, title: 'Identity Crisis' },
-      { score: 6.7, url: s2img7, title: 'The Fenton Menace' },
-      { score: 6.6, url: s2img8, title: 'The Fright Before Christmas' }, 
-      { score: 7.3, url: s2img9, title: 'Secret Weapons' },
-      { score: 8.5, url: s2img10, title: 'Flirting With Disaster' },
-      { score: 6.1, url: s2img11, title: 'Micro-Management' },
-      { score: 6, url: s2img12, title: 'Beauty Marked' },
-      { score: 6, url: s2img13, title: 'King Tuck' },
-      { score: 7.5, url: s2img14, title: 'Masters of All Time' },
-      { score: 9.6, url: s2img15, title: 'Kindred Spirits' },
-      { score: 7, url: s2img16, title: 'Double Cross My Heart' },
-      { score: 8.6, url: s2img17, title: 'Reality Trip' },
+      { score: 6.8, url: s2img1, title: 'Memory Blank', notes: '' },
+      { score: 6.8, url: s2img2, title: 'Doctor\'s Disorders', notes: '' },
+      { score: 6.8, url: s2img3, title: 'Pirate Radio', notes: 'I just noticed this episode completely changes style after the commercial break' },
+      { score: 8.3, url: s2img4, title: 'Reign Storm', notes: '' },
+      { score: 9.8, url: s2img5, title: 'The Ultimate Enemy', notes: '' },
+      { score: 6.6, url: s2img6, title: 'Identity Crisis', notes: '' },
+      { score: 6.7, url: s2img7, title: 'The Fenton Menace', notes: '' },
+      { score: 6.6, url: s2img8, title: 'The Fright Before Christmas', notes: '' },
+      { score: 7.3, url: s2img9, title: 'Secret Weapons', notes: '' },
+      { score: 8.5, url: s2img10, title: 'Flirting With Disaster', notes: '' },
+      { score: 6.1, url: s2img11, title: 'Micro-Management', notes: '' },
+      { score: 6, url: s2img12, title: 'Beauty Marked', notes: '' },
+      { score: 6, url: s2img13, title: 'King Tuck', notes: '' },
+      { score: 7.5, url: s2img14, title: 'Masters of All Time', notes: '' },
+      { score: 9.6, url: s2img15, title: 'Kindred Spirits', notes: '' },
+      { score: 7, url: s2img16, title: 'Double Cross My Heart', notes: '' },
+      { score: 8.6, url: s2img17, title: 'Reality Trip', notes: '' },
     ]
-
-    // Season 3 data (replace scores/titles as needed)
     const dataS3 = [
-      { score: 8.7, url: s3img1, title: 'Eye for an Eye' },
-      { score: 8.6, url: s3img2, title: 'Infinite Realms' },
-      { score: 4, url: s3img3, title: 'Girls\' Night Out' },
-      { score: 4.2, url: s3img4, title: 'Torrent of Terror' },
-      { score: 4.8, url: s3img5, title: 'Forever Phantom' },
-      { score: 5.5, url: s3img6, title: 'Urban Jungle' },
-      { score: 2, url: s3img7, title: 'Livin\' Large' },
-      { score: 3, url: s3img8, title: 'Boxed Up Fury' },
-      { score: 4.8, url: s3img9, title: 'Frightmare' },
-      { score: 4.6, url: s3img10, title: 'Claw of the Wild' },
-      { score: 10, url: s3img11, title: 'D-Stabilized' },
-      { score: 0, url: s3img12, title: 'Phantom Planet' },
+      { score: 8.7, url: s3img1, title: 'Eye for an Eye', notes: '' },
+      { score: 8.6, url: s3img2, title: 'Infinite Realms', notes: '' },
+      { score: 4, url: s3img3, title: 'Girls\' Night Out', notes: '' },
+      { score: 4.2, url: s3img4, title: 'Torrent of Terror', notes: '' },
+      { score: 4.5, url: s3img5, title: 'Forever Phantom', notes: 'I have a confession I actually hate this episode' },
+      { score: 5.5, url: s3img6, title: 'Urban Jungle', notes: '' },
+      { score: 2, url: s3img7, title: 'Livin\' Large', notes: 'The only reason this episode gets points is for that one scene where Danny does a flip' },
+      { score: 3, url: s3img8, title: 'Boxed Up Fury', notes: '' },
+      { score: 4.8, url: s3img9, title: 'Frightmare', notes: 'Cool villian, bad episode' },
+      { score: 4.6, url: s3img10, title: 'Claw of the Wild', notes: '' },
+      { score: 10, url: s3img11, title: 'D-Stabilized', notes: 'Favorite episode. Now we\'re getting somewhere. Hope they don\'t introduce some exciting new lore and then drop it entirely.' },
+      { score: 0, url: s3img12, title: 'Phantom Planet', notes: 'Shame this show never got a finale (sad)' },
     ]
 
     // Combine all seasons
@@ -232,6 +229,20 @@ function App() {
         .attr('preserveAspectRatio', 'xMidYMid slice')
     })
 
+    // Add tooltip
+    const tooltip = d3.select('body')
+      .append('div')
+      .style('position', 'absolute')
+      .style('background', '#333')
+      .style('color', '#fff')
+      .style('padding', '5px 10px')
+      .style('border-radius', '5px')
+      .style('pointer-events', 'none')
+      .style('opacity', 0)
+
+    const tooltipWidth = 200; // Approximate width of the tooltip
+    const tooltipOffset = 10; // Offset for positioning
+
     svg
       .selectAll('circle')
       .data(data)
@@ -243,6 +254,65 @@ function App() {
       .attr('fill', (d, i) => `url(#img-pattern-${i})`)
       .attr('stroke', d => seasonColor(d.season))
       .attr('stroke-width', 2)
+      .on('mouseover', (event, d) => {
+      const tooltipX = event.pageX + tooltipOffset;
+      const tooltipY = event.pageY - 20;
+
+      // Check if tooltip would overflow on the right
+      const isOverflowingRight = tooltipX + tooltipWidth > window.innerWidth;
+
+      tooltip
+        .style('opacity', 1)
+        .html(`
+        <div style="display: flex; align-items: center;">
+          <img src="${d.url}" alt="${d.title}" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 5px;" />
+          <div>
+          <strong>${d.title}</strong><br />
+          <span>Season: ${d.season}</span><br />
+          <span>Score: ${d.score}</span><br />
+          <span>Notes: ${d.notes || 'N/A'}</span>
+          </div>
+        </div>
+        `)
+        .style('left', isOverflowingRight ? `${event.pageX - tooltipWidth - tooltipOffset}px` : `${tooltipX}px`)
+        .style('top', `${tooltipY}px`);
+      })
+      .on('mouseout', () => {
+      tooltip.style('opacity', 0);
+      });
+
+    svg
+      .selectAll('circle')
+      .data(data)
+      .enter()
+      .append('circle')
+      .attr('cx', (d, i) => x(i))
+      .attr('cy', d => y(d.score))
+      .attr('r', circleRadius)
+      .attr('fill', (d, i) => `url(#img-pattern-${i})`)
+      .attr('stroke', d => seasonColor(d.season))
+      .attr('stroke-width', 2)
+      .style('cursor', 'pointer') 
+      .on('mouseover', (event, d) => {
+        tooltip
+          .style('opacity', 1)
+          .html(`
+            <div style="display: flex; align-items: center;">
+              <img src="${d.url}" alt="${d.title}" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 5px;" />
+              <div>
+                <strong>${d.title}</strong><br />
+                <span>Season: ${d.season}</span><br />
+                <span>Score: ${d.score}</span><br />
+                <span>Notes: ${d.notes || 'N/A'}</span>
+              </div>
+            </div>
+          `)
+          .style('left', `${event.pageX + 10}px`)
+          .style('top', `${event.pageY - 20}px`)
+      })
+      .on('mouseout', () => {
+        tooltip.style('opacity', 0)
+      })
 
   }, [])
 
