@@ -237,6 +237,7 @@ function App() {
       .style('color', '#fff')
       .style('padding', '5px 10px')
       .style('border-radius', '5px')
+      .style('max-width', '300px')
       .style('pointer-events', 'none')
       .style('opacity', 0)
 
