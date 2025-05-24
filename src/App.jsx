@@ -140,8 +140,8 @@ function App() {
 
     const svg = d3
       .select(d3Container.current)
-      .attr('width', width)
-      .attr('height', height)
+      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr('preserveAspectRatio', 'xMidYMid meet')
 
     const x = d3
       .scaleLinear()
