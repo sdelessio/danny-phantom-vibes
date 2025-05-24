@@ -257,10 +257,6 @@ function App() {
     document.body.addEventListener('click', handleBodyClick);
 
 
-    return () => {
-      document.body.removeEventListener('click', handleBodyClick);
-    };
-
     svg
       .selectAll('circle')
       .data(data)
@@ -334,6 +330,20 @@ function App() {
       .on('mouseout', () => {
         tooltip.style('opacity', 0)
       })
+
+      const zoom = d3.zoom()
+      .scaleExtent([1, 10]) // Set the zoom scale range
+      .translateExtent([[0, 0], [width, height]]) // Set the translation boundaries
+      .on('zoom', (event) => {
+        svg.attr('transform', event.transform);
+      });
+  
+    const zoomableGroup = svg.append('g'); // Add a group to apply zoom transformations
+  
+    // Move all existing elements into the zoomable group
+    zoomableGroup.append(() => svg.node().firstChild);
+  
+    d3.select(d3Container.current).call(zoom);
 
   }, [])
 
