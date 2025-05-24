@@ -241,8 +241,25 @@ function App() {
       .style('pointer-events', 'none')
       .style('opacity', 0)
 
-    const tooltipWidth = 200; // Approximate width of the tooltip
-    const tooltipOffset = 10; // Offset for positioning
+    const tooltipWidth = 200
+    const tooltipOffset = 10
+
+    const hideTooltip = () => {
+      tooltip.style('opacity', 0);
+    };
+
+
+    const handleBodyClick = (event) => {
+      if (!event.target.closest('circle')) {
+        hideTooltip();
+      }
+    };
+    document.body.addEventListener('click', handleBodyClick);
+
+
+    return () => {
+      document.body.removeEventListener('click', handleBodyClick);
+    };
 
     svg
       .selectAll('circle')
